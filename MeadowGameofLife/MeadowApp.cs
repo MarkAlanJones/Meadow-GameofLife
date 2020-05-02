@@ -2,16 +2,10 @@
 using Meadow.Devices;
 using Meadow.Foundation;
 using Meadow.Foundation.Displays.Tft;
-using Meadow.Foundation.Graphics;
 using Meadow.Foundation.Leds;
 using Meadow.Hardware;
 using System;
-using System.Collections;
 using System.Diagnostics;
-using System.IO;
-using System.Reflection;
-using System.Runtime.InteropServices;
-using System.Threading;
 
 namespace MeadowGameofLife
 {
