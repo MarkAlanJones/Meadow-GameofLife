@@ -190,7 +190,7 @@ namespace MeadowGameofLife
         {
             for (var i = 0; i < displayWidth / 8; i++)
                 for (var j = 0; j < displayHeight / 8; j++)
-                    if (Life[i, j] == 1)
+                    if (Changes[i, j])
                         return false;
             return true;
         }
