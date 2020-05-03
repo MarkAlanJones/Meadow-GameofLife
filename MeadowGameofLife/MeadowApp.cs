@@ -183,9 +183,9 @@ namespace MeadowGameofLife
         }
 
         /// <summary>
-        /// True if all cells are empty
+        /// Are all cells static ?
         /// </summary>
-        /// <returns></returns>
+        /// <returns>True if no cells have changes</returns>
         bool dead()
         {
             for (var i = 0; i < displayWidth / 8; i++)
