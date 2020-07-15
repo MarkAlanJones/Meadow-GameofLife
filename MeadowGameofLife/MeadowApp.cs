@@ -48,7 +48,7 @@ namespace MeadowGameofLife
 
             var config = new SpiClockConfiguration(48000, SpiClockConfiguration.Mode.Mode3);
             var spiBus = Device.CreateSpiBus(Device.Pins.SCK, Device.Pins.MOSI, Device.Pins.MISO, config);
-            
+
             display = new St7789(
                 device: Device,
                 spiBus: spiBus,
@@ -98,9 +98,9 @@ namespace MeadowGameofLife
                 for (int y = 0; y < displayHeight / 8; y++)
                 {
                     if (Life[x, y] == 1)
-                        graphics.DrawBitmap(x * 8, y * 8, 1, 8, pixel, c);
+                        graphics.DrawBitmap(x * 8, y * 8, 8, 8, pixel, c);
                     else if (Changes[x, y])
-                        graphics.DrawBitmap(x * 8, y * 8, 1, 8, pixel, Color.Black);
+                        graphics.DrawBitmap(x * 8, y * 8, 8, 8, pixel, Color.Black);
                 }
             }
             graphics.Show();
