@@ -2,6 +2,7 @@
 using Meadow.Devices;
 using Meadow.Foundation;
 using Meadow.Foundation.Displays.Tft;
+using Meadow.Foundation.Graphics;
 using Meadow.Foundation.Leds;
 using Meadow.Hardware;
 using System;
@@ -14,7 +15,8 @@ namespace MeadowGameofLife
         St7789 display;
         const int displayWidth = 240;
         const int displayHeight = 240;
-        
+        GraphicsLibrary graphics;
+
         RgbPwmLed onboardLed;
 
         Random rand;
@@ -62,6 +64,8 @@ namespace MeadowGameofLife
                 3.3f, 3.3f, 3.3f,
                 Meadow.Peripherals.Leds.IRgbLed.CommonType.CommonAnode);
 
+            graphics = new GraphicsLibrary(display);
+
             rand = new Random();
 
             Changes = new bool[displayWidth / 8, displayHeight / 8];
@@ -72,7 +76,7 @@ namespace MeadowGameofLife
             for (int r = 0; r < pixel.Length; r++)
                 pixel[r] = 170; //10101010
 
-            display.Clear();
+            graphics.Clear();
         }
 
         /// <summary>
@@ -84,9 +88,6 @@ namespace MeadowGameofLife
         int[,] Life;
         bool[,] Changes;
 
-        /// <summary>
-        /// uses display.Drawbitmap - bypassing the graphics library
-        /// </summary>
         void DrawLife()
         {
             var c = RandColor();
@@ -97,12 +98,12 @@ namespace MeadowGameofLife
                 for (int y = 0; y < displayHeight / 8; y++)
                 {
                     if (Life[x, y] == 1)
-                        display.DrawBitmap(x * 8, y * 8, 1, 8, pixel, c);
+                        graphics.DrawBitmap(x * 8, y * 8, 1, 8, pixel, c);
                     else if (Changes[x, y])
-                        display.DrawBitmap(x * 8, y * 8, 1, 8, pixel, Color.Black);
+                        graphics.DrawBitmap(x * 8, y * 8, 1, 8, pixel, Color.Black);
                 }
             }
-            display.Show();
+            graphics.Show();
         }
 
         /// <summary>
