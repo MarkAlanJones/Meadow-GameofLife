@@ -93,6 +93,7 @@ namespace MeadowGameofLife
             var c = RandColor();
             onboardLed.SetColor(c);
 
+            graphics.Clear();
             for (int x = 0; x < displayWidth / 8; x++)
             {
                 for (int y = 0; y < displayHeight / 8; y++)
