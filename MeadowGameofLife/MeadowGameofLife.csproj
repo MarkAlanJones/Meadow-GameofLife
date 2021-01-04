@@ -11,9 +11,9 @@
     <Content Include="st7789_fritzing.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Meadow.Foundation" Version="0.20.0" />
+    <PackageReference Include="Meadow.Foundation" Version="0.21.0" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Meadow.Foundation.Displays.TftSpi" Version="0.7.23" />
+    <PackageReference Include="Meadow.Foundation.Displays.TftSpi" Version="0.7.28" />
   </ItemGroup>
 </Project>
