@@ -15,7 +15,7 @@ namespace MeadowGameofLife
         St7789 display;
         const int displayWidth = 240;
         const int displayHeight = 240;
-        GraphicsLibrary graphics;
+       MicroGraphics graphics;
 
         RgbPwmLed onboardLed;
 
@@ -46,7 +46,7 @@ namespace MeadowGameofLife
         {
             Console.WriteLine("Initializing...");
 
-            var config = new SpiClockConfiguration(48000, SpiClockConfiguration.Mode.Mode3);
+            var config = new SpiClockConfiguration(St7789.DefaultSpiBusSpeed, SpiClockConfiguration.Mode.Mode3);
             var spiBus = Device.CreateSpiBus(Device.Pins.SCK, Device.Pins.MOSI, Device.Pins.MISO, config);
 
             display = new St7789(
@@ -64,7 +64,7 @@ namespace MeadowGameofLife
                 3.3f, 3.3f, 3.3f,
                 Meadow.Peripherals.Leds.IRgbLed.CommonType.CommonAnode);
 
-            graphics = new GraphicsLibrary(display);
+            graphics = new MicroGraphics(display);
 
             rand = new Random();
 
