@@ -10,7 +10,7 @@ using System.Diagnostics;
 
 namespace MeadowGameofLife
 {
-    public class MeadowApp : App<F7Micro, MeadowApp>
+    public class MeadowApp : App<F7FeatherV1, MeadowApp>
     {
         St7789 display;
         const int displayWidth = 240;
@@ -61,7 +61,6 @@ namespace MeadowGameofLife
                 redPwmPin: Device.Pins.OnboardLedRed,
                 greenPwmPin: Device.Pins.OnboardLedGreen,
                 bluePwmPin: Device.Pins.OnboardLedBlue,
-                3.3f, 3.3f, 3.3f,
                 Meadow.Peripherals.Leds.IRgbLed.CommonType.CommonAnode);
 
             graphics = new MicroGraphics(display);
