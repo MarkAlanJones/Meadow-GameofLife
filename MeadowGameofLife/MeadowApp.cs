@@ -1,21 +1,25 @@
 ﻿using Meadow;
 using Meadow.Devices;
 using Meadow.Foundation;
-using Meadow.Foundation.Displays.TftSpi;
+using Meadow.Foundation.Displays;
 using Meadow.Foundation.Graphics;
 using Meadow.Foundation.Leds;
+using Meadow.Foundation.MyExtensions;
 using Meadow.Hardware;
+using Meadow.Peripherals.Leds;
 using System;
 using System.Diagnostics;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace MeadowGameofLife
 {
-    public class MeadowApp : App<F7FeatherV1, MeadowApp>
+    public class MeadowApp : App<F7FeatherV1>
     {
         St7789 display;
         const int displayWidth = 240;
         const int displayHeight = 240;
-       MicroGraphics graphics;
+        GraphicsLibraryEx graphics;
 
         RgbPwmLed onboardLed;
 
@@ -25,6 +29,9 @@ namespace MeadowGameofLife
         {
             Stopwatch sw = new Stopwatch();
             Initialize();
+
+            graphics.DrawBigCenteredText("LIFE", RandColor());
+            Thread.Sleep(5000);
 
             int g = 0;
             while (!dead())
@@ -42,7 +49,7 @@ namespace MeadowGameofLife
             onboardLed.Stop();
         }
 
-        void Initialize()
+        public override Task Initialize()
         {
             Console.WriteLine("Initializing...");
 
@@ -61,9 +68,9 @@ namespace MeadowGameofLife
                 redPwmPin: Device.Pins.OnboardLedRed,
                 greenPwmPin: Device.Pins.OnboardLedGreen,
                 bluePwmPin: Device.Pins.OnboardLedBlue,
-                Meadow.Peripherals.Leds.IRgbLed.CommonType.CommonAnode);
+                CommonType.CommonAnode);
 
-            graphics = new MicroGraphics(display);
+            graphics = new GraphicsLibraryEx(display);
 
             rand = new Random();
 
@@ -76,6 +83,7 @@ namespace MeadowGameofLife
                 pixel[r] = 170; //10101010
 
             graphics.Clear();
+            return base.Initialize();
         }
 
         /// <summary>
