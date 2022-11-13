@@ -18,4 +18,9 @@
   <ItemGroup>
     <PackageReference Include="Meadow.Foundation.Displays.TftSpi" Version="0.7.61" />
   </ItemGroup>
+  <ItemGroup>
+    <None Update="meadow.config.yaml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 </Project>
