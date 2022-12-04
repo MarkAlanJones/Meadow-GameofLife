@@ -2,7 +2,6 @@
 using Meadow.Devices;
 using Meadow.Foundation;
 using Meadow.Foundation.Displays;
-using Meadow.Foundation.Graphics;
 using Meadow.Foundation.Leds;
 using Meadow.Foundation.MyExtensions;
 using Meadow.Hardware;
@@ -25,10 +24,9 @@ namespace MeadowGameofLife
 
         Random rand;
 
-        public MeadowApp()
+        public override Task Run()
         {
-            Stopwatch sw = new Stopwatch();
-            Initialize();
+            var sw = new Stopwatch();
 
             graphics.DrawBigCenteredText("LIFE", RandColor());
             Thread.Sleep(5000);
@@ -47,6 +45,8 @@ namespace MeadowGameofLife
             }
             Console.WriteLine($"Dead!");
             onboardLed.Stop();
+
+            return base.Run();
         }
 
         public override Task Initialize()
