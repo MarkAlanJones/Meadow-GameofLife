@@ -1,7 +1,4 @@
-﻿using Meadow.Foundation.Displays;
-using Meadow.Foundation.Graphics;
-using System;
-using System.Drawing;
+﻿using Meadow.Foundation.Graphics;
 
 namespace Meadow.Foundation.MyExtensions
 {
