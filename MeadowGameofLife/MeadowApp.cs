@@ -57,14 +57,13 @@ namespace MeadowGameofLife
             var spiBus = Device.CreateSpiBus(Device.Pins.SCK, Device.Pins.MOSI, Device.Pins.MISO, config);
 
             display = new St7789(
-                device: Device,
                 spiBus: spiBus,
                 chipSelectPin: null,
                 dcPin: Device.Pins.D01,
                 resetPin: Device.Pins.D00,
                 width: displayWidth, height: displayHeight);
 
-            onboardLed = new RgbPwmLed(device: Device,
+            onboardLed = new RgbPwmLed(
                 redPwmPin: Device.Pins.OnboardLedRed,
                 greenPwmPin: Device.Pins.OnboardLedGreen,
                 bluePwmPin: Device.Pins.OnboardLedBlue,
