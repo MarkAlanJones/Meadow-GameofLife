@@ -44,7 +44,7 @@ namespace MeadowGameofLife
                 Console.WriteLine($"Compute {g}: {sw.ElapsedMilliseconds}ms");
             }
             Console.WriteLine($"Dead!");
-            onboardLed.Stop();
+            onboardLed.StopAnimation();
 
             return base.Run();
         }
@@ -53,8 +53,7 @@ namespace MeadowGameofLife
         {
             Console.WriteLine("Initializing...");
 
-            var config = new SpiClockConfiguration(St7789.DefaultSpiBusSpeed, SpiClockConfiguration.Mode.Mode3);
-            var spiBus = Device.CreateSpiBus(Device.Pins.SCK, Device.Pins.MOSI, Device.Pins.MISO, config);
+            var spiBus = Device.CreateSpiBus(Device.Pins.SCK, Device.Pins.MOSI, Device.Pins.MISO);
 
             display = new St7789(
                 spiBus: spiBus,
