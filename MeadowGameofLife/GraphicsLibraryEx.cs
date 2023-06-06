@@ -10,6 +10,7 @@ namespace Meadow.Foundation.MyExtensions
         public GraphicsLibraryEx(IGraphicsDisplay display) : base(display)
         {
             this.display = display;
+            Rotation = RotationType._180Degrees;
             base.CurrentFont = new Font12x20();
         }
 
