@@ -1,10 +1,8 @@
 ﻿using Meadow;
 using Meadow.Devices;
-using Meadow.Foundation;
 using Meadow.Foundation.Displays;
 using Meadow.Foundation.Leds;
 using Meadow.Foundation.MyExtensions;
-using Meadow.Hardware;
 using Meadow.Peripherals.Leds;
 using System;
 using System.Diagnostics;
