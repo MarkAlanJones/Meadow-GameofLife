@@ -30,7 +30,7 @@ namespace MeadowGameofLife
             Thread.Sleep(5000);
 
             int g = 0;
-            while (!dead())
+            while (!Dead())
             {
                 sw.Restart();
                 DrawLife();
@@ -191,7 +191,7 @@ namespace MeadowGameofLife
         /// Are all cells static ?
         /// </summary>
         /// <returns>True if no cells have changes</returns>
-        bool dead()
+        bool Dead()
         {
             for (var i = 0; i < displayWidth / 8; i++)
                 for (var j = 0; j < displayHeight / 8; j++)
